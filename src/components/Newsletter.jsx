@@ -11,12 +11,13 @@ export default function Newsletter() {
       </p>
       
       {/* Reemplaza TU_USUARIO por el tuyo de Buttondown */}
-      <form
-        action="https://buttondown.email/api/emails/embed-subscribe/TU_USUARIO"
-        method="post"
-        target="popupwindow"
-        className="flex flex-col sm:flex-row gap-4"
-      >
+<form
+  action="https://buttondown.email/api/emails/embed-subscribe/simonhl"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.email/simonhl', 'popupwindow')"
+  className="flex flex-col sm:flex-row gap-4"
+>
         <input
           type="email"
           name="email"
