@@ -3,7 +3,8 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-// Importamos los estilos aquí para que Tailwind se active en la Home
+import Newsletter from '../components/Newsletter.jsx';
+
 import '../styles/global.css'; 
 ---
 
@@ -31,6 +32,7 @@ import '../styles/global.css';
 					GitHub
 				</a>
 			</div>
+			<Newsletter client:load />
 		</main>
 		<Footer />
 	</body>
