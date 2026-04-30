@@ -1,28 +1,62 @@
 ---
 // src/components/Search.astro
-import '@pagefind/default-ui/css/ui.css';
 ---
 
+<!-- Contenedor donde aparecerá la barra de búsqueda -->
 <div id="search" class="ml-auto"></div>
 
-<script>
-  // @ts-ignore
-  import { PagefindUI } from "@pagefind/default-ui";
-  
-  window.addEventListener('DOMContentLoaded', (event) => {
-    new PagefindUI({ 
-      element: "#search", 
-      showSubResults: true,
-      translations: {
-        placeholder: "Buscar en el Codex..."
-      }
-    });
-  });
+<!-- Cargamos los assets directamente desde la carpeta que generará Pagefind -->
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+
+<script is:inline>
+  // Función para inicializar Pagefind de forma segura
+  function initPagefind() {
+    if (typeof PagefindUI !== 'undefined') {
+      new PagefindUI({ 
+        element: "#search", 
+        showSubResults: true,
+        translations: {
+          placeholder: "Buscar en el Codex..."
+        }
+      });
+    } else {
+      // Si por alguna razón el script no ha cargado, reintentamos en 500ms
+      setTimeout(initPagefind, 500);
+    }
+  }
+
+  // Inicializamos cuando el DOM esté listo o cuando Astro cargue la página (View Transitions)
+  window.addEventListener('DOMContentLoaded', initPagefind);
+  document.addEventListener('astro:page-load', initPagefind);
 </script>
 
 <style is:inline>
-  /* Aquí puedes tunear los colores para que peguen con tu estilo */
+  /* Personalización básica para que encaje con tu diseño */
   :root {
-    --pagefind-ui-primary: #3b82f6; /* El azul de tu marca */
+    --pagefind-ui-primary: #3b82f6;
+    --pagefind-ui-text: #374151;
+    --pagefind-ui-background: #ffffff;
+    --pagefind-ui-border: #e5e7eb;
+    --pagefind-ui-tag: #f3f4f6;
+  }
+
+  /* Pequeño ajuste para que no se vea gigante en el header */
+  #search {
+    width: 100%;
+    min-height: 40px;
+  }
+
+  /* Ajuste de márgenes para la caja de resultados */
+  .pagefind-ui__drawer {
+    background: white;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
   }
 </style>
