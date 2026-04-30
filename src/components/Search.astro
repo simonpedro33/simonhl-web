@@ -1,0 +1,28 @@
+---
+// src/components/Search.astro
+import '@pagefind/default-ui/css/ui.css';
+---
+
+<div id="search" class="ml-auto"></div>
+
+<script>
+  // @ts-ignore
+  import { PagefindUI } from "@pagefind/default-ui";
+  
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({ 
+      element: "#search", 
+      showSubResults: true,
+      translations: {
+        placeholder: "Buscar en el Codex..."
+      }
+    });
+  });
+</script>
+
+<style is:inline>
+  /* Aquí puedes tunear los colores para que peguen con tu estilo */
+  :root {
+    --pagefind-ui-primary: #3b82f6; /* El azul de tu marca */
+  }
+</style>
