@@ -2,61 +2,116 @@
 // src/components/Search.astro
 ---
 
-<!-- Contenedor donde aparecerá la barra de búsqueda -->
-<div id="search" class="ml-auto"></div>
+<div id="search" class="w-full font-mono group relative">
+  <!-- Accent corner (simil Newsletter) -->
+  <div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-blueprint-gold/20 group-focus-within:border-blueprint-gold transition-colors duration-300 pointer-events-none"></div>
+</div>
 
-<!-- Cargamos los assets directamente desde la carpeta que generará Pagefind -->
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
 <script src="/pagefind/pagefind-ui.js" is:inline></script>
 
 <script is:inline>
-  // Función para inicializar Pagefind de forma segura
   function initPagefind() {
-    if (typeof PagefindUI !== 'undefined') {
+    if (typeof PagefindUI !== 'undefined' && !document.querySelector('.pagefind-ui')) {
       new PagefindUI({ 
         element: "#search", 
         showSubResults: true,
+        showImages: false,
         translations: {
-          placeholder: "Buscar en el Codex..."
+          placeholder: "ESCUDRIÑAR CODEX..."
         }
       });
-    } else {
-      // Si por alguna razón el script no ha cargado, reintentamos en 500ms
-      setTimeout(initPagefind, 500);
+    } else if (typeof PagefindUI === 'undefined') {
+      setTimeout(initPagefind, 300);
     }
   }
 
-  // Inicializamos cuando el DOM esté listo o cuando Astro cargue la página (View Transitions)
   window.addEventListener('DOMContentLoaded', initPagefind);
   document.addEventListener('astro:page-load', initPagefind);
 </script>
 
-<style is:inline>
-  /* Personalización básica para que encaje con tu diseño */
+<style is:global>
   :root {
-    --pagefind-ui-primary: #3b82f6;
-    --pagefind-ui-text: #374151;
-    --pagefind-ui-background: #ffffff;
-    --pagefind-ui-border: #e5e7eb;
-    --pagefind-ui-tag: #f3f4f6;
+    --pagefind-ui-primary: #D4A017;
+    --pagefind-ui-text: #F5F5F0;
+    --pagefind-ui-background: #0A1E3F;
+    --pagefind-ui-border: rgba(245, 245, 240, 0.1);
+    --pagefind-ui-tag: rgba(212, 160, 23, 0.1);
+    --pagefind-ui-font: "JetBrains Mono", monospace;
   }
 
-  /* Pequeño ajuste para que no se vea gigante en el header */
-  #search {
-    width: 100%;
-    min-height: 40px;
+  /* Personalización profunda de PagefindUI para el estilo Blueprint */
+  .pagefind-ui__search-input {
+    background-color: var(--color-blueprint-blue-deep) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0 !important;
+    color: var(--color-blueprint-white) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.875rem !important;
+    letter-spacing: 0.1em !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
   }
 
-  /* Ajuste de márgenes para la caja de resultados */
+  .pagefind-ui__search-input:focus {
+    border-color: rgba(212, 160, 23, 0.5) !important;
+    outline: none !important;
+  }
+
   .pagefind-ui__drawer {
-    background: white;
-    z-index: 100;
-    position: absolute;
-    width: 100%;
-    max-width: 600px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin-top: 0.5rem;
+    background-color: var(--color-blueprint-blue-deep) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+    margin-top: 0.5rem !important;
+    z-index: 1000;
+  }
+
+  .pagefind-ui__result-link {
+    color: var(--color-blueprint-white) !important;
+    font-weight: 700 !important;
+    transition: color 0.3s ease;
+  }
+
+  .pagefind-ui__result-link:hover {
+    color: var(--color-blueprint-gold) !important;
+  }
+
+  .pagefind-ui__result-excerpt {
+    color: var(--color-blueprint-gray) !important;
+    font-size: 0.875rem !important;
+    font-family: var(--font-mono) !important;
+    opacity: 0.8;
+  }
+
+  .pagefind-ui__message {
+    color: var(--color-blueprint-gold) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  .pagefind-ui__button {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--color-blueprint-white) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0 !important;
+    font-family: var(--font-mono) !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    transition: background-color 0.3s ease;
+  }
+
+  .pagefind-ui__button:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .pagefind-ui__search-clear {
+    color: var(--color-blueprint-gray) !important;
+  }
+
+  .pagefind-ui__search-clear:hover {
+    color: var(--color-blueprint-gold) !important;
   }
 </style>
