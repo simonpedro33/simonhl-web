@@ -13,26 +13,34 @@ import '../styles/global.css';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="bg-white text-gray-900 font-sans antialiased">
+	<body class="bg-blueprint-blue text-blueprint-white selection:bg-blueprint-gold selection:text-blueprint-blue">
 		<Header />
-		<main class="flex flex-col items-center justify-center min-h-[70vh] px-6 text-center">
-			<h1 class="text-6xl font-extrabold tracking-tighter mb-6">
-				Simon<span class="text-blue-600 font-black">HL</span>
-			</h1>
-			
-			<p class="text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
-				Especialista en <span class="text-black font-semibold text-gray-800">Maestría de Soberanía Personal</span> y sistemas digitales de alto rendimiento. Construyendo el futuro de la libertad individual.
-			</p>
+		<main class="relative overflow-hidden pt-20 pb-32 px-6">
+			<!-- Background decorative element: Blueprint Grid -->
+			<div class="absolute inset-0 z-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle, #F5F5F0 1px, transparent 1px); background-size: 40px 40px;"></div>
 
-			<div class="flex flex-wrap justify-center gap-4">
-				<a href="/blog" class="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl active:scale-95">
-					Explorar Blog
-				</a>
-				<a href="https://github.com/simonpedro33" target="_blank" class="bg-gray-100 text-gray-900 px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-all">
-					GitHub
-				</a>
+			<div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center text-center">
+				<h1 class="text-7xl md:text-8xl font-black tracking-tighter mb-8 leading-none">
+					Simon<span class="text-blueprint-gold">HL</span>
+				</h1>
+				
+				<p class="text-xl md:text-2xl text-blueprint-gray max-w-3xl mb-12 leading-relaxed font-mono">
+					Maestría de <span class="text-blueprint-white font-bold">Soberanía Personal</span> y sistemas digitales de alto rendimiento. Construyendo el futuro de la libertad individual.
+				</p>
+
+				<div class="flex flex-wrap justify-center gap-6 mb-20">
+					<a href="/blog" class="bg-blueprint-gold text-blueprint-blue px-10 py-5 rounded-sm font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[8px_8px_0px_0px_rgba(245,245,240,0.1)] active:translate-y-1 active:shadow-none">
+						Explorar Codex
+					</a>
+					<a href="https://github.com/simonpedro33" target="_blank" class="border border-white/20 text-blueprint-white px-10 py-5 rounded-sm font-bold uppercase tracking-widest hover:bg-white/5 transition-all">
+						Repositorio
+					</a>
+				</div>
+
+				<div class="w-full">
+					<Newsletter client:load />
+				</div>
 			</div>
-			<Newsletter client:load />
 		</main>
 		<Footer />
 	</body>
