@@ -1,0 +1,90 @@
+---
+// src/components/OrdoVivens.astro
+---
+
+<div class="ordo-vivens-container w-full max-w-2xl mx-auto my-12 font-mono text-xs md:text-sm">
+  <div class="flex flex-col items-center space-y-4">
+    
+    <!-- ENTORNO TOP -->
+    <div class="text-blueprint-gray uppercase tracking-[0.3em] opacity-60">ENTORNO</div>
+    
+    <!-- LINE -->
+    <div class="w-px h-8 bg-gradient-to-b from-blueprint-gray/40 to-blueprint-gold/60"></div>
+    
+    <!-- NEGENTROPÍA -->
+    <div class="px-6 py-2 border border-blueprint-gold/30 bg-blueprint-gold/5 text-blueprint-gold rounded-sm uppercase tracking-widest flex items-center gap-3">
+      <span class="text-lg">[</span>
+      <span>NEGENTROPÍA — absorción de orden</span>
+      <span class="text-lg">]</span>
+    </div>
+
+    <!-- LINE -->
+    <div class="w-px h-8 bg-blueprint-gold/40"></div>
+
+    <!-- MAIN BLOCK -->
+    <div class="relative w-full max-w-md border border-blueprint-white/20 bg-blueprint-blue-deep/50 p-8 shadow-2xl overflow-hidden group">
+      <!-- Accent Corners -->
+      <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-blueprint-white/40"></div>
+      <div class="absolute top-0 right-0 w-2 h-2 border-t border-r border-blueprint-white/40"></div>
+      <div class="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-blueprint-white/40"></div>
+      <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-blueprint-white/40"></div>
+
+      <div class="space-y-6 relative z-10">
+        <div class="flex items-center gap-4 group/item">
+          <span class="text-blueprint-gold font-bold">I.</span>
+          <span class="text-blueprint-white font-bold uppercase tracking-widest">Soporte</span>
+          <span class="flex-1 border-b border-dashed border-white/10 mx-2"></span>
+          <span class="text-blueprint-gray text-[10px] opacity-60">Capitales / Infraestructura</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <span class="text-blueprint-gold font-bold">II.</span>
+          <span class="text-blueprint-white font-bold uppercase tracking-widest">Procesos</span>
+          <span class="flex-1 border-b border-dashed border-white/10 mx-2"></span>
+          <span class="text-blueprint-gray text-[10px] opacity-60">Automatización / Lógica</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <span class="text-blueprint-gold font-bold">III.</span>
+          <span class="text-blueprint-white font-bold uppercase tracking-widest">Dirección</span>
+          <span class="flex-1 border-b border-dashed border-white/10 mx-2"></span>
+          <span class="text-blueprint-gray text-[10px] opacity-60">Modelos / Principios</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <span class="text-blueprint-gold font-bold">IV.</span>
+          <span class="text-blueprint-white font-bold uppercase tracking-widest">Feedback</span>
+          <span class="flex-1 border-b border-dashed border-white/10 mx-2"></span>
+          <span class="text-blueprint-gray text-[10px] opacity-60">Sentidos / Percepción</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LINE -->
+    <div class="w-px h-8 bg-blueprint-gold/40"></div>
+
+    <!-- ECTROPÍA -->
+    <div class="px-6 py-2 border border-blueprint-gold/30 bg-blueprint-gold/5 text-blueprint-gold rounded-sm uppercase tracking-widest flex items-center gap-3">
+      <span class="text-lg">[</span>
+      <span>ECTROPÍA — generación de valor</span>
+      <span class="text-lg">]</span>
+    </div>
+
+    <!-- LINE -->
+    <div class="w-px h-8 bg-gradient-to-b from-blueprint-gold/60 to-blueprint-gray/40"></div>
+
+    <!-- ENTORNO BOTTOM -->
+    <div class="text-blueprint-gray uppercase tracking-[0.3em] opacity-60">ENTORNO</div>
+
+  </div>
+</div>
+
+<style>
+  .ordo-vivens-container {
+    perspective: 1000px;
+  }
+  
+  .shadow-2xl {
+    box-shadow: 0 0 40px rgba(10, 30, 63, 0.5), 0 0 1px rgba(245, 245, 240, 0.1);
+  }
+</style>

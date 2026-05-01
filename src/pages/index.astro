@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Newsletter from "../components/Newsletter.jsx";
+import OrdoVivens from "../components/OrdoVivens.astro";
 
 import "../styles/global.css";
 ---
@@ -35,7 +36,7 @@ import "../styles/global.css";
 				</h1>
 
 				<p
-					class="text-xl md:text-2xl text-blueprint-gray max-w-3xl mb-12 leading-relaxed font-mono"
+					class="text-xl md:text-2xl text-blueprint-gray max-w-3xl mb-4 leading-relaxed font-mono"
 				>
 					Maestría de <span class="text-blueprint-white font-bold"
 						>Soberanía Personal</span
@@ -43,7 +44,9 @@ import "../styles/global.css";
 					de la libertad individual.
 				</p>
 
-				<div class="flex flex-wrap justify-center gap-6 mb-20">
+				<OrdoVivens />
+
+				<div class="flex flex-wrap justify-center gap-6 mb-20 mt-8">
 					<a
 						href="/blog"
 						class="bg-blueprint-gold text-blueprint-blue px-10 py-5 rounded-sm font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[8px_8px_0px_0px_rgba(245,245,240,0.1)] active:translate-y-1 active:shadow-none"
